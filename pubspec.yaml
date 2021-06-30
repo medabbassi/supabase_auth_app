@@ -30,6 +30,8 @@ dependencies:
   cupertino_icons: ^1.0.3
   supabase: ^0.0.1-dev.23
   animated_text_kit:
+  shared_preferences:
+  get_it:
 
 dev_dependencies:
   flutter_test:

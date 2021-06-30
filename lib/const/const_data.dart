@@ -1,0 +1,2 @@
+const  String  URL = "https://gucvdmwshlhfuqrylkhi.supabase.co" ;
+const  String  API ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyNDk1ODg2MCwiZXhwIjoxOTQwNTM0ODYwfQ.z1tFzU205047_qUXtF7sPqV40fwmZmQxtRinF2fFmzc";

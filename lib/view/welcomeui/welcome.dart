@@ -12,6 +12,7 @@ class WelcomeScreen extends StatelessWidget {
 }
 
 class MyWelcomeScreen extends StatefulWidget {
+
   @override
   State<StatefulWidget> createState() {
     return _MyWelcomeScreenState();
@@ -45,16 +46,30 @@ class _MyWelcomeScreenState  extends State<MyWelcomeScreen>{
             stopPauseOnTap: true,
             ),
 
-            TextButton(
-              style: TextButton.styleFrom(primary: Colors.white),
-              onPressed: () {
-                print(" button clicked ");
-              },
-              child: Text(
-                  'Start From Here'
-              ),
+                SizedBox(height: 10,),
 
-            )
+           ElevatedButton(
+
+                style: ButtonStyle(
+                enableFeedback: true,
+                  overlayColor: MaterialStateProperty.all(Colors.greenAccent),
+                ),
+               onPressed: (){
+                  print('clicked');
+                  Navigator.pushReplacementNamed(context, '/login');
+               },
+               child: Padding(
+                 padding: new EdgeInsets.all(10.0),
+                 child: new Text('Start',
+                   style: TextStyle(
+                       color: Colors.white,
+                       fontSize: 24,
+                       fontWeight: FontWeight.bold
+
+                   ),
+                 ),
+               )
+           )
           ],
         ),
       ),
