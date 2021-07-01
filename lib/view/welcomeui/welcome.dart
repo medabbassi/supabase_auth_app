@@ -60,7 +60,7 @@ class _MyWelcomeScreenState  extends State<MyWelcomeScreen>{
                },
                child: Padding(
                  padding: new EdgeInsets.all(10.0),
-                 child: new Text('Start',
+                 child: new Text('Lets Go',
                    style: TextStyle(
                        color: Colors.white,
                        fontSize: 24,
