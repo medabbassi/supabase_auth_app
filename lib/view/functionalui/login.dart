@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
-import 'package:shared_preferences/shared_preferences.dart' hide Column;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
-import 'package:supabase/supabase.dart' hide Column;
+import 'package:supabase/supabase.dart' as supa;
 
 
 class    LoginScreen extends StatefulWidget{
@@ -13,7 +13,7 @@ class    LoginScreen extends StatefulWidget{
 }
 
 class _LoginScreenState  extends State<LoginScreen>{
-   final _nameController = TextEditingController();
+   //final _nameController = TextEditingController();
    final _emailController = TextEditingController();
    final _passwordController = TextEditingController();
 
@@ -22,15 +22,16 @@ class _LoginScreenState  extends State<LoginScreen>{
    Future _login() async {
      final sharedPreferences = await SharedPreferences.getInstance();
 
-     final result = await GetIt.I.get<SupabaseClient>().auth.signIn(
+     final result = await GetIt.I.get<supa.SupabaseClient>().auth.signIn(
          email: _emailController.text, password: _passwordController.text);
 
      if (result.data != null) {
        await sharedPreferences.setString(
            'user', result.data!.persistSessionString);
-       Navigator.pushReplacementNamed(context, '/home');
+       Navigator.pushReplacementNamed(context, '/profile');
      } else if (result.error?.message != null) {
        _showDialog(context, title: 'Error', message: result.error?.message);
+       print(result.error?.message.toString());
      }
    }
 
@@ -43,7 +44,7 @@ class _LoginScreenState  extends State<LoginScreen>{
    );
   }
   Widget loginBody(context){
-    final sc_size= MediaQuery.of(context).size;
+    final scSize= MediaQuery.of(context).size;
     return SingleChildScrollView(
         child: Column(
           children: [
@@ -119,7 +120,7 @@ class _LoginScreenState  extends State<LoginScreen>{
                               ),
                               Container(
                                 padding: EdgeInsets.symmetric(horizontal: 20),
-                                width: sc_size.width,
+                                width: scSize.width,
                                 height: 45,
                                 child: MaterialButton(
                                   onPressed: (){

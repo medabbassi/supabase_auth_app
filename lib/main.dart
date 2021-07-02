@@ -3,6 +3,8 @@ import 'package:get_it/get_it.dart';
 import 'package:supabase/supabase.dart';
 import 'package:supabase_auth_app/const/const_data.dart';
 import 'package:supabase_auth_app/view/functionalui/login.dart';
+import 'package:supabase_auth_app/view/functionalui/profile.dart';
+import 'package:supabase_auth_app/view/functionalui/signup.dart';
 import 'package:supabase_auth_app/view/welcomeui/welcome.dart';
 
 void main() {
@@ -28,8 +30,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/':(_) => WelcomeScreen(),
         '/login':(_) => LoginScreen(),
-        '/register':(_) => WelcomeScreen(),
-        '/profile':(_) => WelcomeScreen(),
+        '/register':(_) => RegisterScreen(),
+        '/profile':(_) => ProfileScreen(),
 
       },
 
